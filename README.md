@@ -1,2 +1,3 @@
 # js-pro-course
-JS-React
+Ivan Tselesh
+![This is an image]()
