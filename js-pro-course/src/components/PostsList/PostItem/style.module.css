@@ -1,0 +1,36 @@
+.itemWrap {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.itemWrapImg {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    height: 150px;
+    border: none;
+    border-radius: 30px;
+}
+
+.itemWrapContent {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.itemWrapContentText {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.itemWrapContentDate {
+    color: #FD292F;
+}

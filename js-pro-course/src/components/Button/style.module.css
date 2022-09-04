@@ -18,3 +18,19 @@
 .button:active {
     background: #FD292F;
 }
+
+.primary {
+
+}
+
+.secondary {
+
+}
+
+.secondary2 {
+
+}
+
+.buttonDisabled {
+    display: none;
+}

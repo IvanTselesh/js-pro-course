@@ -1,17 +1,32 @@
 .userWrap {
     display: flex;
     width: 200px;
-    background: #FE8535;
-    color: #FEF4C0;
     padding: 5px;
     font-size: 18px;
     justify-content: center;
     align-items: center;
     border-radius: 30px;
     border: 1px solid #FDB10B;
+
 }
 
-.userWrapImg {
+.userWrapInitial {
     border: none;
     border-radius: 50%;
+    background: #B20000;
+    color: #FEF4C0;
+    padding: 3px;
+}
+
+.userWrapContent {
+    margin: 0 5px;
+}
+
+.isDark {
+    background: black;
+    color: #FEF4C0;
+}
+
+.isLight {
+    background: #FE8535;
 }
