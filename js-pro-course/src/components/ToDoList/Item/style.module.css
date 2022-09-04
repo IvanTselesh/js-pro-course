@@ -1,0 +1,15 @@
+.toDoItem {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #FE8535;
+    border-radius: 30px;
+    margin: 5px 0;
+    padding: 0 15px;
+    align-items: center;
+    background: #FEF4C0;
+}
+
+.toDoItemContent {
+    font-size: 24px;
+    padding-left: 10px;
+}

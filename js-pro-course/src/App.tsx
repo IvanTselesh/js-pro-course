@@ -6,6 +6,10 @@ import {Title} from "./components/Title/Title";
 import {User} from "./components/User/User";
 import {Clicker} from "./components/Clicker/Clicker";
 import {PostItem} from "./components/PostsList/PostItem/PostItem";
+import {PostList} from "./components/PostsList/List/PostList";
+import {emojies, posts} from "./mocks";
+import {ToDoList} from "./components/ToDoList/List/ToDoList";
+import {EmojiList} from "./components/EmojiList/EmojiList/EmojiList";
 
 function App() {
     const onClickLogin = () => {
@@ -28,6 +32,10 @@ function App() {
       {/*<User username="John Wick" isDark={true}/>*/}
       {/*<Clicker />*/}
       {/*<PostItem id="1" text="Lorem a;ljsfd lka;sjd ;l jlkk alkj sdnv oaeg najfk hvaeejg nadkjfgh kae r ngjkherajg kaefnogjelkv nlkfeahojacnvkjefjghowejfp  albguerog mkla sdn jkherg j ew glhero  g" date={"20-01-2020"} title="Lorem fjsoe ksvnva woqldk" />*/}
+      {/*  <PostList posts={posts} />*/}
+      {/*  <ToDoList />*/}
+      {/*  <EmojiList emojies={emojies} />*/}
+        <PostList posts={posts} />
     </div>
   );
 }

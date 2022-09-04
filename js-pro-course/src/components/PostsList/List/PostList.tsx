@@ -1,24 +1,31 @@
 import React from "react";
 import {PostItem} from "../PostItem/PostItem";
+import {IPost} from "../../../types/post";
+import styles from "./style.module.css";
 
 const generateUniqueId = () => {
     return "_" + Math.random().toString(16).slice(2);
 };
 
-// const todos = [
-//     {id: generateUniqueId(), text: item.text, date: , title: },
-//     {id: generateUniqueId()},
-//     {id: generateUniqueId()},
-//     {id: generateUniqueId()},
-//     {id: generateUniqueId()},
-// ]
+interface IProps {
+    posts: IPost[]
+}
 
-// export const PostList = () => {
-//     return (
-//         <div>
-//             {todos.map((item) => {
-//                 return <PostItem id={item.id} text={item.text} date={item.date} title={item.title} />
-//             })}
-//         </div>
-//     )
-// };
+export const PostList = (props: IProps) => {
+    return (
+        <div className={styles.listWrap}>
+            {props.posts.map((item) => (
+                <PostItem
+                    key={item.id}
+                    image={item.image}
+                    text={item.text}
+                    date={item.date}
+                    title={item.title}
+                    id={item.id}
+                    lesson_num={item.lesson_num}
+                    author={item.author}
+                />
+            ))}
+        </div>
+    );
+};
