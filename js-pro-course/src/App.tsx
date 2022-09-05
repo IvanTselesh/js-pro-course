@@ -33,9 +33,9 @@ function App() {
       {/*<Clicker />*/}
       {/*<PostItem id="1" text="Lorem a;ljsfd lka;sjd ;l jlkk alkj sdnv oaeg najfk hvaeejg nadkjfgh kae r ngjkherajg kaefnogjelkv nlkfeahojacnvkjefjghowejfp  albguerog mkla sdn jkherg j ew glhero  g" date={"20-01-2020"} title="Lorem fjsoe ksvnva woqldk" />*/}
       {/*  <PostList posts={posts} />*/}
-      {/*  <ToDoList />*/}
+        <ToDoList />
       {/*  <EmojiList emojies={emojies} />*/}
-        <PostList posts={posts} />
+      {/*  <PostList posts={posts} />*/}
     </div>
   );
 }
