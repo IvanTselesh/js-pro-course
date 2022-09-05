@@ -11,6 +11,7 @@ const generateUniqueId = () => {
 interface IToDo {
     text: string
     id: string
+    checked: boolean
 }
 
 const todos = [
@@ -30,13 +31,18 @@ export const ToDoList = () => {
     };
 
     const addToDo = () => {
+        if(text.length < 3) {
+            return;
+        }
         const newToDo = {
             text: text,
             id: generateUniqueId(),
+            checked: false,
         }
 
         const newTodos = todos.concat([newToDo])
         setTodos(newTodos)
+        setText("")
     };
 
     const removeToDo = (id: string) => {
@@ -49,17 +55,31 @@ export const ToDoList = () => {
         setTodos(newTodos)
     }
 
+    const checkToDo = (id: string) => {
+        const newTodos = todos.map((item) => {
+            if(item.id === id) {
+                item.checked = !item.checked;
+                return item;
+            }
+            return item;
+        })
+        setTodos(newTodos)
+    }
+
     return (
         <div className={styles.listWrap}>
             <div className={styles.listWrapSearch}>
                 <Input value={text} onChange={handleOnChange} />
-                <Button text="Add" onClick={addToDo} disabled={false} type="primary" />
+                {text.length > 3 ? <Button text="Add" onClick={addToDo} disabled={false} type="primary" /> : null}
             </div>
             {todos.map((item) => {
                 const onClickRemove = () => {
                     removeToDo(item.id)
                 }
-                return <Item key={item.id} text={item.text} onClickRemove={onClickRemove} />
+                const onClickChecked = () => {
+                    checkToDo(item.id)
+                }
+                return <Item key={item.id} checked={item.checked} onClickChecked={onClickChecked} text={item.text} onClickRemove={onClickRemove} />
             })}
         </div>
     )
