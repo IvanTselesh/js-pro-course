@@ -1,19 +1,13 @@
 import React from "react";
 import styles from "./style.module.css"
-import imgUrl from "./no-image.jpg"
+import noImage from "../../../assets/images/no-image.jpg"
+import {IPost} from "../../../types/post";
 
-interface PostItem {
-    id: string
-    text: string
-    date: any
-    title: string
-}
-
-export const PostItem = (props: PostItem) => {
+export const PostItem = (props: IPost) => {
     return (
         <div id={`${props.id}`} className={styles.itemWrap}>
             <div className={styles.itemWrapImg}>
-                <img src={imgUrl} />
+                {props.image ? <img className={styles.Img} src={props.image} alt={`${props.id + 1}`} /> : <img src={noImage} alt={`${props.id + 1}`} />}
             </div>
             <div className={styles.itemWrapContent}>
                 <h3>{props.title}</h3>
