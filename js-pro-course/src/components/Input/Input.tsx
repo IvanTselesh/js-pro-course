@@ -3,6 +3,7 @@ import styles from "./style.module.css";
 
 interface Input {
     placeholder?: string
+    id?: string
     value: string
     onChange: ChangeEventHandler<HTMLInputElement>
 }

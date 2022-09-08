@@ -1,0 +1,16 @@
+.header {
+    width: 100%;
+    margin: 10px;
+}
+
+.menu {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 10px;
+    border: none;
+    background-color: transparent;
+}
+
+.menuButton {
+    cursor: pointer;
+}
