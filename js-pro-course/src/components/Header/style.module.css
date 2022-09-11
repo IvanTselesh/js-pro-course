@@ -1,6 +1,8 @@
 .header {
     width: 100%;
     margin: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .menu {

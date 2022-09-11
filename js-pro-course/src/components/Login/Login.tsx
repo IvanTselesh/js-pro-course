@@ -24,7 +24,7 @@ export const Login = () => {
         <label className={styles.loginWrapFormInput} htmlFor="password">Password</label>
         <Input id="password" value={password} onChange={handleOnChangePassword} />
       </div>
-      <Button text="Login" onClick={()=> {}} disabled={false} type="secondary" />
+      <Button text="Login" onClick={()=> {}} disabled={false} type="primary" />
       <p>Forgot your password?</p>
     </div>
   )

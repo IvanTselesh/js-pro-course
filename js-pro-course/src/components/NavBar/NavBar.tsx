@@ -1,13 +1,23 @@
-import React from "react";
+import React, {useContext} from "react";
 import cross from "../../assets/images/cross.svg";
 import styles from "./style.module.css";
+import {DarkModeToggle} from "../DarkModeToggle/DarkModeToggle";
+import {Context} from "../../App";
 
 interface INavBar {
   onClose: () => void
 }
 
 export const NavBar = ({onClose}: INavBar) => {
-
+  const {isDark, setIsDark} = useContext(Context);
+  const handleOnChange =() => {
+    if(isDark) {
+      setIsDark(false);
+    } else {
+      setIsDark(true);
+    };
+    //2 setIsDark(!isDark);
+  };
 
   return (
     <div className={styles.navBar}>
@@ -25,7 +35,7 @@ export const NavBar = ({onClose}: INavBar) => {
             </li>
           </ul>
         </div>
-
+        <DarkModeToggle inputChecked={false} onChange={handleOnChange} />
       </div>
     </div>
   )

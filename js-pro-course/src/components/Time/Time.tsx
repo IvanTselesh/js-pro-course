@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./style.module.css";
 
 export const Time = () => {
-  const [time, setTime] = useState(new Date().toLocaleTimeString())
+  const [time, setTime] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
     const interval = setInterval(() => {
