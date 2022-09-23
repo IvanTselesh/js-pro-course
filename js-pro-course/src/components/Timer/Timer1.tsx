@@ -34,9 +34,9 @@ export const Timer1 = () => {
   return (
     <div>
       <h3>{count}</h3>
-      <Button type="primary" onClick={onClickStart} text="Start" disabled={false} />
-      <Button type="primary" onClick={onClickStop} text="Stop" disabled={false} />
-      <Button type="primary" onClick={onClickReset} text="Reset" disabled={false} />
+      <Button onClick={onClickStart} text="Start" disabled={false} styleBtn="button" />
+      <Button onClick={onClickStop} text="Stop" disabled={false} styleBtn="button" />
+      <Button onClick={onClickReset} text="Reset" disabled={false} styleBtn="button" />
     </div>
   )
 };

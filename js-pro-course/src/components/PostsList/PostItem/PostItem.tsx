@@ -1,13 +1,23 @@
-import React from "react";
+import React, {ReactEventHandler, useState} from "react";
 import styles from "./style.module.css"
-import noImage from "../../../assets/images/no-image.jpg"
+import noImage from "./no-image.jpg";
 import {IPost} from "../../../types/post";
 
-export const PostItem = (props: IPost) => {
+interface IProps extends IPost {
+  className?: string
+}
+
+export const PostItem = (props: IProps) => {
+  const [image, setImage] = useState(props.image);
+
+  const handleError: ReactEventHandler<HTMLImageElement> = () => {
+    setImage('./no-image.jpg')
+  };
+
     return (
         <div id={`${props.id}`} className={styles.itemWrap}>
             <div className={styles.itemWrapImg}>
-                {props.image ? <img className={styles.Img} src={props.image} alt={`${props.id + 1}`} /> : <img src={noImage} alt={`${props.id + 1}`} />}
+                {image ? <img className={styles.Img} src={props.image} alt={`${props.id + 1}`} onError={handleError} /> : <img src={"./no-image.jpg"} alt={`${props.id + 1}`} />}
             </div>
             <div className={styles.itemWrapContent}>
                 <h3>{props.title}</h3>
@@ -15,5 +25,5 @@ export const PostItem = (props: IPost) => {
                 <p className={styles.itemWrapContentDate}>{props.date}</p>
             </div>
         </div>
-    )
+    );
 };

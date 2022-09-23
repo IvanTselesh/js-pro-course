@@ -1,14 +1,18 @@
 .header {
     width: 100%;
     margin: 10px;
-    display: flex;
     align-items: center;
+}
+
+.headerDiv {
+    align-items: center;
+    display: flex;
+    margin: 10px;
 }
 
 .menu {
     display: flex;
     justify-content: left;
-    margin-bottom: 10px;
     border: none;
     background-color: transparent;
 }

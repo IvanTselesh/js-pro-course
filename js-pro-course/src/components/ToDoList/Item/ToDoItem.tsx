@@ -18,7 +18,7 @@ export const Item = (props: IItem) => {
         <div className={styles.toDoItem}>
             <input type="checkbox" checked={props.checked} onChange={props.onClickChecked}/>
             <p className={styles.toDoItemContent}>{props.text}</p>
-            <Button text="Remove" onClick={props.onClickRemove} disabled={false} type="primary" />
+            <Button text="Remove" onClick={props.onClickRemove} disabled={false} styleBtn="button" />
         </div>
     )
 }

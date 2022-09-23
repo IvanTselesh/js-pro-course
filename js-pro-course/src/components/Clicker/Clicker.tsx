@@ -1,5 +1,7 @@
-import React, {Component, useState} from "react";
+import React, {useContext, useState} from "react";
 import {Button} from "../Button/Button";
+import {Context} from "../../App";
+
 
 export const Clicker = () => {
     const [count, setCount] = useState(0);
@@ -18,8 +20,8 @@ export const Clicker = () => {
         if (count <= 0) {
             return (<div>
                     {/*<h2>{count}</h2>*/}
-                    <Button text='+' onClick={onClickPlus} disabled={false} type="primary" />
-                    <Button text='Reset' onClick={reset} disabled={false} type="primary" />
+                    <Button text='+' onClick={onClickPlus} disabled={false} styleBtn="button" />
+                    <Button text='Reset' onClick={reset} disabled={false} styleBtn="button" />
                 </div>
             );
         };
@@ -29,8 +31,8 @@ export const Clicker = () => {
             return (<div>
                     {count >= 10 ? <h1>АСТАНАВИТЕСЬ!</h1> : null}
                     {/*<h2>{count}</h2>*/}
-                    <Button text={'-'} onClick={onClickMinus} disabled={false} type="primary" />
-                    <Button text='Reset' onClick={reset} disabled={false} type="primary" />
+                    <Button text={'-'} onClick={onClickMinus} disabled={false} styleBtn="button" />
+                    <Button text='Reset' onClick={reset} disabled={false} styleBtn="button" />
                 </div>
             );
     };
@@ -43,9 +45,9 @@ export const Clicker = () => {
             return disablePlus
         } else {
             return (<div>
-                    <Button text='+' onClick={onClickPlus} disabled={false} type="primary" />
-                    <Button text={'-'} onClick={onClickMinus} disabled={false} type="primary" />
-                    <Button text='Reset' onClick={reset} disabled={false} type="primary" />
+                    <Button text='+' onClick={onClickPlus} disabled={false} styleBtn="button" />
+                    <Button text={'-'} onClick={onClickMinus} disabled={false} styleBtn="button" />
+                    <Button text='Reset' onClick={reset} disabled={false} styleBtn="button" />
                 </div>
             )
         }
@@ -53,9 +55,9 @@ export const Clicker = () => {
 
     return <div>
         <h2>{count}</h2>
-        {count < 10 ? <Button text='+' onClick={onClickPlus} disabled={false} type="primary"/> : null}
-        {count > 0 ? <Button text={'-'} onClick={onClickMinus} disabled={false} type="primary" /> : null}
-        <Button text='Reset' onClick={reset} disabled={false} type="primary" />
+        {count < 10 ? <Button text='+' onClick={onClickPlus} disabled={false} styleBtn="button"/> : null}
+        {count > 0 ? <Button text={'-'} onClick={onClickMinus} disabled={false} styleBtn="button" /> : null}
+        <Button text='Reset' onClick={reset} disabled={false} styleBtn="button" />
     </div>
 }
 

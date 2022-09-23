@@ -1,21 +1,23 @@
 import {Button} from "../Button/Button";
 import {NavLink} from "react-router-dom";
+import {useContext} from "react";
+import {Context} from "../../App";
 
 interface IInfoTemplate {
   header: string
-  text1: string
-  text2: string
+  children: string
   textBtn: string
   route: string
+  onClick: () => void
 };
 
 export const InfoTemplate = (props: IInfoTemplate) => {
+  const isDark = useContext(Context);
   return (<div>
       <h2>{props.header}</h2>
-      <p>text1</p>
-      <p>text2</p>
+      <p>{props.children}</p>
       <NavLink to={props.route}>
-        <Button text={props.textBtn} disabled={false} type="primary" onClick={() => {}} />
+        <Button text={props.textBtn} disabled={false} styleBtn="buttonLogin" onClick={props.onClick} />
       </NavLink>
   </div>
   )

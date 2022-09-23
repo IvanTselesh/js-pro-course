@@ -1,0 +1,10 @@
+.toggle {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+.toggleNavlink {
+    margin: 0 10px;
+}

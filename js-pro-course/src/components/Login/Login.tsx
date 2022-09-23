@@ -1,12 +1,14 @@
-import React, {ChangeEventHandler, useState} from "react";
+import React, {ChangeEventHandler, useContext, useState} from "react";
 import {Input} from "../Input/Input";
 import {Button} from "../Button/Button";
 import styles from "./style.module.css";
+import {Context} from "../../App";
 
 
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const isDark = useContext(Context);
 
   const handleOnChangeEmail:ChangeEventHandler<HTMLInputElement> = (event) => {
     setEmail(event.target.value)
@@ -24,7 +26,7 @@ export const Login = () => {
         <label className={styles.loginWrapFormInput} htmlFor="password">Password</label>
         <Input id="password" value={password} onChange={handleOnChangePassword} />
       </div>
-      <Button text="Login" onClick={()=> {}} disabled={false} type="primary" />
+      <Button text="Login" onClick={()=> {}} disabled={false} styleBtn='buttonLogin' />
       <p>Forgot your password?</p>
     </div>
   )

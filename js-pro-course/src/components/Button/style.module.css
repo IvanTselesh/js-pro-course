@@ -1,37 +1,16 @@
 .button {
-
-}
-
-.primary:hover {
-    background: #B20000;
-}
-
-.primary:active {
-    background: #FD292F;
-}
-
-.primary {
     width: 200px;
     height: 50px;
-    background: #FE8535;
-    border: 1px solid #FDB10B;
     border-radius: 30px;
     align-items: center;
     margin: 10px;
     font-size: 18px;
-    color: #FEF4C0;
     cursor: pointer;
 }
 
-.secondary {
+.buttonLogin {
     width: 300px;
     height: 35px;
-}
-
-.secondary2 {
-    background: #B20000;
-    color: #FDB10B;
-    border: 1px solid #FDB10B;
     border-radius: 30px;
     align-items: center;
     margin: 10px;
@@ -39,12 +18,32 @@
     cursor: pointer;
 }
 
-.secondary2:hover {
-    background: #FE8535;
+.light:hover {
+    background: #B20000;
 }
 
-.secondary2:active {
+.light:active {
     background: #FD292F;
+}
+
+.light {
+    background: #FE8535;
+    border: 1px solid #FDB10B;
+    color: #FEF4C0;
+}
+
+.dark {
+    background: #B54213;
+    color: #FEF4DB;
+    border: 1px solid #FEF4DB;
+}
+
+.dark:hover {
+    background: #F8A86A;
+}
+
+.dark:active {
+    background: #4D0C02;
 }
 
 .buttonDisabled {

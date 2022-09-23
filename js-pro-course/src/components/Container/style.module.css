@@ -1,6 +1,5 @@
 .container {
     position: relative;
-    height: 100vh;
     text-align: center;
     padding: 15px;
     z-index: 1;
@@ -15,5 +14,18 @@
 }
 
 .darkContainer {
-    background: black;
+    background: #040000;
+    position: relative;
+    text-align: center;
+    padding: 15px;
+    z-index: 1;
+    color: #FEF4DB;
+}
+
+.darkContainer:before {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    content: url(../../assets/images/VectorDark.png);
 }

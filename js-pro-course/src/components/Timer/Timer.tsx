@@ -35,9 +35,9 @@ export const Timer = () => {
     <div>
       <div>{state.time}</div>
       <div>
-        <Button text="Start" onClick={() => dispatch({ type: 'start' })} disabled={false} type="primary" />
-        <Button text="Stop" onClick={() => dispatch({ type: 'stop' })} disabled={false} type="primary" />
-        <Button text="Reset" onClick={() => dispatch({ type: 'reset' })} disabled={false} type="primary" />
+        <Button text="Start" onClick={() => dispatch({ type: 'start' })} disabled={false} styleBtn="button" />
+        <Button text="Stop" onClick={() => dispatch({ type: 'stop' })} disabled={false} styleBtn="button" />
+        <Button text="Reset" onClick={() => dispatch({ type: 'reset' })} disabled={false} styleBtn="button" />
       </div>
     </div>
   )

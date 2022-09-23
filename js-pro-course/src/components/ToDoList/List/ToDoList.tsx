@@ -70,7 +70,7 @@ export const ToDoList = () => {
         <div className={styles.listWrap}>
             <div className={styles.listWrapSearch}>
                 <Input value={text} onChange={handleOnChange} />
-                {text.length > 3 ? <Button text="Add" onClick={addToDo} disabled={false} type="primary" /> : null}
+                {text.length > 3 ? <Button text="Add" onClick={addToDo} disabled={false} styleBtn="button" /> : null}
             </div>
             {todos.map((item) => {
                 const onClickRemove = () => {

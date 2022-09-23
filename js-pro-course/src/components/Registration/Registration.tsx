@@ -37,7 +37,7 @@ export const Registration = () => {
           <label className={styles.regWrapFormInput} htmlFor="repeatPassword">Repeat Password</label>
           <Input id="repeatPassword" value={repeatPassword} onChange={handleOnChangeRepeatPassword} />
         </div>
-        <Button text="Login" onClick={()=> {}} disabled={false} type="secondary" />
+        <Button text="Login" onClick={()=> {}} disabled={false} styleBtn="buttonLogin" />
         <p>Forgot your password?</p>
       </div>
     </div>
