@@ -2,12 +2,18 @@ import React, {ChangeEventHandler, useState} from "react";
 import styles from "./style.module.css";
 import {Input} from "../Input/Input";
 import {Button} from "../Button/Button";
+import {validateConfirm, validateEmail, validatePassword, validateRequired} from "../../utils/validation";
 
 export const Registration = () => {
   const [email, setEmail] = useState('');
+  const [validEmail, setValidEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [validPassword, setValidPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [validRepeatPassword, setValidRepeatPassword] = useState('');
   const [userName, setUserName] = useState('');
+  const [validUserName, setValidUserName] = useState('');
+
 
   const handleOnChangeUserName:ChangeEventHandler<HTMLInputElement> = (event) => {
     setUserName(event.target.value)
