@@ -1,0 +1,17 @@
+.converterWrap {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.converterWrapContent {
+    margin: 10px auto;
+    border: 1px solid #FE8535;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.converterWrapContentTitle {
+    margin: 10px 0;
+    font-size: 18px;
+}

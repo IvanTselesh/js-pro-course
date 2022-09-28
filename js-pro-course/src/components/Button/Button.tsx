@@ -1,28 +1,59 @@
-import React from "react";
+import React, {ContextType, useContext, useEffect, useState} from "react";
 import styles from "./style.module.css";
+import {Context} from "../../App";
 
 interface Props {
     text: string
     onClick: () => void
     disabled: boolean
-    type: "primary" | "secondary" | "secondary2"
+    type?: "light" | "dark"
+    styleBtn: "buttonLogin" | "button"
 }
 
-const getButtonStyle = (type: "primary" | "secondary" | "secondary2") => {
-    if (type === 'primary') {
-        return styles.primary
-    }
-    if (type === 'secondary') {
-        return styles.secondary
-    }
-    if (type === 'secondary2') {
-        return styles.secondary
-    }
-};
-
-
 export const Button = (props: Props) => {
+    const isDark = useContext(Context);
+    const [typeColor, setTypeColor] = useState('light');
+
+    useEffect(() => {
+        if(typeColor === 'light') {
+            setTypeColor('dark')
+        }
+        if(typeColor === 'dark') {
+            setTypeColor('light')
+        }
+    }, [isDark]);
+
+    const choiceType = (typeColor: string) => {
+        if(typeColor === 'dark') {
+            return styles.dark
+        }
+        if(typeColor === 'light') {
+            return styles.light
+        };
+    };
+
+    const formBtn = (styleBtn: "buttonLogin" | "button") => {
+        if(styleBtn === 'button') {
+            return styles.button
+        }
+        if(styleBtn === 'buttonLogin') {
+            return styles.buttonLogin
+        }
+    }
+
+    // const changeType = (type: "light" | "dark") => {
+    //     if(props.type === 'light') {
+    //         return styles.light
+    //     }
+    //     if(props.type === 'dark') {
+    //         return styles.dark
+    //     }
+    // }
+    // console.log(props.type)
+    console.log(isDark)
+    console.log(typeColor)
+
     return (
-        <button className={`${styles.button} ${getButtonStyle(props.type)}`} onClick={props.onClick}>{props.text}</button>
+        <button className={`${formBtn(props.styleBtn)} ${choiceType(typeColor)}`} onClick={props.onClick}>{props.text}</button>
     );
 };
