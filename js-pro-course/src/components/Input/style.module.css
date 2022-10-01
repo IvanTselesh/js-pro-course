@@ -16,3 +16,11 @@
 .input:focus {
     outline: 1px solid #FD292F;
 }
+
+.error {
+    color: #FD292F;
+    font-size: 14px;
+    margin: 5px 0;
+    width: 300px;
+
+}

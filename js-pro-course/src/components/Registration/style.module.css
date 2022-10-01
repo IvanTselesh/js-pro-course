@@ -1,5 +1,5 @@
 .regWrap {
-
+    min-height: 100vh;
 }
 
 .regWrapForm {
@@ -12,4 +12,9 @@
 
 .regWrapFormInput {
     margin: 10px 0;
+}
+
+.error {
+    color: #FD292F;
+    width: 300px;
 }
