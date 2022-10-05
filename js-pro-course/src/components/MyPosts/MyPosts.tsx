@@ -8,14 +8,16 @@ import styles from "./style.module.css";
 export const MyPostsList = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
-
     fetchMyPosts()
       .then((values: any) => {
-        setPosts(values);
+        if(values?.status === 404) {
+          setPosts([]);
+        } else {
+          setPosts(values);
+        }
       })
       .finally(() => {
         setIsLoading(false);

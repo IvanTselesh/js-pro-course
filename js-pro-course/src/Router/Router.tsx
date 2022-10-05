@@ -9,6 +9,7 @@ import {EmailConfirm} from "../components/Pages/EmailConfirm/EmailConfirm";
 import {Context} from "../App";
 import {MyPostsList} from "../components/MyPosts/MyPosts";
 import {ErrorPage} from "../components/Pages/ErrorPage/ErrorPage";
+import {AddPost} from "../components/Pages/AddPost/AddPost";
 
 export const RootRouter = () => {
   return (
@@ -19,6 +20,7 @@ export const RootRouter = () => {
       <Route element={<FullPost />} path="/selectedPost/:id" />
       <Route element={<RegConfirm />} path="/regConfirm" />
       <Route element={<EmailConfirm />} path="/navigate/:uid/:token" />
+      <Route element={useLoginGuard(<AddPost/>)} path="/add-post" />
       <Route element={useLoginGuard(<MyPostsList/>)} path="/my-posts" />
       <Route element={useLoginGuard(<EmailConfirm />)} path="/add-post" />
       <Route element={<ErrorPage />} path="*" />

@@ -21,3 +21,16 @@ export const fetchPostsAsync = async (searchText: string, offset: number) => {
   const json = await response.json();
   return json;
 };
+
+export const createPost = (body: FormData) => {
+  return tmsFetch('https://studapi.teachmeskills.by/blog/posts/', {
+    method: "POST",
+    body: body,
+  });
+};
+
+export const removePost = (id: number) => {
+  return tmsFetch(`https://studapi.teachmeskills.by/blog/posts/${id}`, {
+    method: "DELETE",
+  });
+};
