@@ -50,8 +50,6 @@ export const Button = (props: Props) => {
     //     }
     // }
     // console.log(props.type)
-    console.log(isDark)
-    console.log(typeColor)
 
     return (
         <button className={`${formBtn(props.styleBtn)} ${choiceType(typeColor)}`} onClick={props.onClick}>{props.text}</button>
