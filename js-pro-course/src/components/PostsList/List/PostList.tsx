@@ -3,6 +3,7 @@ import {PostItem} from "../PostItem/PostItem";
 import {IPost} from "../../../types/post";
 import styles from "./style.module.css";
 import {Button} from "../../Button/Button";
+import {useNavigate} from "react-router-dom";
 
 const generateUniqueId = () => {
     return "_" + Math.random().toString(16).slice(2);
@@ -10,17 +11,22 @@ const generateUniqueId = () => {
 
 interface IProps {
     posts: IPost[]
-    onClickPost: (id: number) => void
     onClickDelete?: (id: number) => void
 }
 
 export const PostList = (props: IProps) => {
+    const navigate = useNavigate();
+
+    const navigateToSelectedPost = (postId: number) => {
+      navigate(`/selected-post/${postId}`)
+    };
+
     return (
       <div className={styles.container}>
           {props.posts.length !== 0 ? (
             props.posts.map((item) => {
                 const clickPost = () => {
-                    props.onClickPost(item.id);
+                    navigateToSelectedPost(item.id);
                 };
 
                 const onClickDelete: MouseEventHandler<HTMLButtonElement> = (event) => {

@@ -55,7 +55,7 @@ export const MyPostsList = () => {
   return (
     <>
       {isLoading ? <div className={styles.loader}><span></span></div> : (<>
-        <PostList posts={posts} onClickPost={navigateToSelectedPost} onClickDelete={deletePost}/>
+        <PostList posts={posts} onClickDelete={deletePost}/>
       </>)}
     </>
   )

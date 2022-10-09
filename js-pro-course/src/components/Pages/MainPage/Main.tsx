@@ -1,12 +1,12 @@
 import {Header} from "../../Header/Header";
-import {AllPosts} from "../../AllPosts/AllPosts";
 import {Container} from "../../Container/Container";
+import {PostsTabs} from "../../PostsTabs/PostsTabs";
 
 export const Main = () => {
   return (
     <Container>
       <Header />
-      <AllPosts />
+      <PostsTabs />
     </Container>
   )
 }

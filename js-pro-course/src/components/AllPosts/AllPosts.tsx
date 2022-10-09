@@ -52,7 +52,7 @@ export const AllPosts = () => {
       <div>
           <Input value={searchText} onChange={handleOnChange} />
         {isLoading ? <div className={styles.loader}></div> : <div>
-          <PostList posts={posts} onClickPost={navToPost} />
+          <PostList posts={posts} />
           {showLoadMore ? <Button text="Load More" onClick={loadMore} disabled={false} styleBtn="button" /> : null}
         </div>}
       </div>
