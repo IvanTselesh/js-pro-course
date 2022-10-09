@@ -11,7 +11,7 @@ interface IProps extends IPost {
 
 export const PostItem = (props: IProps) => {
   const [image, setImage] = useState(props.image);
-  const isDark = useContext(Context);
+  const {isDark} = useContext(Context);
   const [color, setColor] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {

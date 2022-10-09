@@ -39,7 +39,7 @@ export const activateUser = (uid: string, token: string) => {
 export const getUser = () => {
   const access = localStorage.getItem('access');
 
-  tmsFetch("https://studapi.teachmeskills.by/auth/users/me", {
+  return tmsFetch("https://studapi.teachmeskills.by/auth/users/me", {
     method: 'GET',
     headers: {
       "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export const getUser = () => {
 export const refreshToken = () => {
   const refresh = localStorage.getItem('refresh');
 
-  fetch("https://studapi.teachmeskills.by/auth/jwt/refresh/", {
+  return fetch("https://studapi.teachmeskills.by/auth/jwt/refresh/", {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",

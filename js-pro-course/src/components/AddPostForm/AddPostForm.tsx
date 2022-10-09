@@ -58,7 +58,6 @@ export const AddPostForm = () => {
   };
 
   return (
-    <>
       <div className={styles.addPostIndex}>
         <Container>
           <div className={styles.addPostWrraper}>
@@ -126,6 +125,5 @@ export const AddPostForm = () => {
           </div>
         </Container>
       </div>
-    </>
   );
 };

@@ -1,10 +1,10 @@
-import React, {ContextType, useContext, useEffect, useState} from "react";
+import React, {ContextType, MouseEventHandler, useContext, useEffect, useState} from "react";
 import styles from "./style.module.css";
 import {Context} from "../../App";
 
 interface Props {
     text: string
-    onClick: () => void
+    onClick: MouseEventHandler<HTMLButtonElement>
     disabled: boolean
     type?: "light" | "dark"
     styleBtn: "buttonLogin" | "button"

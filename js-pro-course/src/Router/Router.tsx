@@ -10,6 +10,8 @@ import {Context} from "../App";
 import {MyPostsList} from "../components/MyPosts/MyPosts";
 import {ErrorPage} from "../components/Pages/ErrorPage/ErrorPage";
 import {AddPost} from "../components/Pages/AddPost/AddPost";
+import {ResetPassword} from "../components/Pages/ResetPassword/ResetPassword";
+import {ConfirmPassword} from "../components/Pages/ConfirmPassword/ConfirmPassword";
 
 export const RootRouter = () => {
   return (
@@ -22,7 +24,8 @@ export const RootRouter = () => {
       <Route element={<EmailConfirm />} path="/navigate/:uid/:token" />
       <Route element={useLoginGuard(<AddPost/>)} path="/add-post" />
       <Route element={useLoginGuard(<MyPostsList/>)} path="/my-posts" />
-      <Route element={useLoginGuard(<EmailConfirm />)} path="/add-post" />
+      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/password/reset/confirm/:uid/:token" element={<ConfirmPassword />} />
       <Route element={<ErrorPage />} path="*" />
     </Routes>
   )

@@ -11,7 +11,7 @@ import {IUser} from "../../types/auth";
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const isDark = useContext(Context);
+  const {isDark} = useContext(Context);
   const navigate = useNavigate();
   const { setUser } = useContext(Context);
 
@@ -25,10 +25,7 @@ export const Login = () => {
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    //option
-    // console.log(refEmail?.current?.value, refEmail?.current?.value);
-    // email = refEmail?.current?.value
-    // password = refPassword?.current?.value
+
     const formData = new FormData(event?.target as any);
     const obj = Object.fromEntries(Array.from(formData.entries()));
     const email: string = obj.email as string;
