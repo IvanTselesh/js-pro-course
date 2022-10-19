@@ -4,8 +4,7 @@ import noImage from "./no-image.jpg";
 import { IPost } from "../../../types/post";
 import { Context } from "../../../App";
 import { useDispatch } from "react-redux";
-import { like } from "../../../assets/assets";
-import { bookmark } from "../../../assets/assets";
+import { Bookmark, Like } from "../../../assets/assets";
 import {likePost} from "../../../redux/actions/post";
 
 interface IProps extends IPost {
@@ -29,7 +28,7 @@ export const PostItem = (props: IProps) => {
     }
   }, [isDark]);
 
-  const handleLikePost: MouseEventHandler<HTMLImageElement> = (event) => {
+  const handleLikePost: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
     dispatch(likePost(posts));
   };
@@ -60,8 +59,12 @@ export const PostItem = (props: IProps) => {
             </div>
           {user ? (
             <>
-              <img src={bookmark} />
-              <img src={like} onClick={handleLikePost} />
+              <button onClick={handleLikePost}>
+                <Bookmark fill={props.marked ? '#FE8535' : '#B54213'} />
+              </button>
+              <button onClick={handleLikePost}>
+                <Like fill={props.liked ? '#FE8535' : '#B54213'} />
+              </button>
             </>
           ) : null}
         </div>
