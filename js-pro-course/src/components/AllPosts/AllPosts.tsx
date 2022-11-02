@@ -6,53 +6,39 @@ import {Button} from "../Button/Button";
 import {Input} from "../Input/Input";
 import styles from "./style.module.css";
 import {fetchResponse} from "../../api/posts";
+import {useDispatch, useSelector} from "react-redux";
+import {TState} from "../../redux/store";
+import {loadAppPosts, loadMorePosts, setAllPosts} from "../../redux/actions/post";
 
 export const AllPosts = () => {
-    const [posts, setPosts] = useState<IPost[]>([]);
-    const navigate = useNavigate();
-    const [showLoadMore, setShowLoadMore] = useState(true);
+    const posts = useSelector((state: TState) => {state.postsReducer.allPosts});
+    const dispatch = useDispatch();
     const [searchText, setSearchText] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+  const isLoading = useSelector(
+    (state: TState) => state.postsReducer.isLoading
+  );
+  const showLoadMore = useSelector(
+    (state: TState) => state.postsReducer.showLoadMore
+  );
+
 
   const handleOnChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     setSearchText(event.target.value)
   };
 
-    const navToPost = (id: number) => {
-        navigate(`/posts/${id}`)
-    };
-
     useEffect(() => {
-      setIsLoading(true);
-
-      fetchResponse(searchText, posts.length)
-        .then((values) => {
-          if(values.count > values.results.length) {
-            setShowLoadMore(true)
-          } else {
-            setShowLoadMore(false)
-          }
-          setPosts(values.results)
-        }).finally(() => {
-        setIsLoading(false)
-      })
+      dispatch(loadAppPosts(searchText) as any)
     }, [searchText])
 
     const loadMore = () => {
-        const promise = fetchResponse(searchText, posts.length);
-          promise.then((values) => {
-              if(values.results.length + posts.length === values.count) {
-                setShowLoadMore(false)
-              };
-              setPosts(posts.concat(values.results));
-          });
+      dispatch(loadMorePosts(searchText) as any);
     }
 
     return (
       <div>
           <Input value={searchText} onChange={handleOnChange} />
         {isLoading ? <div className={styles.loader}></div> : <div>
-          <PostList posts={posts} onClickPost={navToPost} />
+          <PostList posts={posts} />
           {showLoadMore ? <Button text="Load More" onClick={loadMore} disabled={false} styleBtn="button" /> : null}
         </div>}
       </div>

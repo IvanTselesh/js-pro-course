@@ -1,10 +1,10 @@
-import React, {ContextType, useContext, useEffect, useState} from "react";
+import React, {ContextType, MouseEventHandler, useContext, useEffect, useState} from "react";
 import styles from "./style.module.css";
 import {Context} from "../../App";
 
 interface Props {
     text: string
-    onClick: () => void
+    onClick: MouseEventHandler<HTMLButtonElement>
     disabled: boolean
     type?: "light" | "dark"
     styleBtn: "buttonLogin" | "button"
@@ -50,8 +50,6 @@ export const Button = (props: Props) => {
     //     }
     // }
     // console.log(props.type)
-    console.log(isDark)
-    console.log(typeColor)
 
     return (
         <button className={`${formBtn(props.styleBtn)} ${choiceType(typeColor)}`} onClick={props.onClick}>{props.text}</button>

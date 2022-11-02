@@ -1,11 +1,17 @@
-import React from "react";
-import {Route, Routes} from "react-router-dom";
+import React, {ReactNode, useContext} from "react";
+import {Navigate, Route, Routes} from "react-router-dom";
 import {Main} from "../components/Pages/MainPage/Main";
 import {LoginPage} from "../components/Pages/LoginPage/Login";
 import {RegistrationPage} from "../components/Pages/RegistrationPage/RegistrationPage";
 import {FullPost} from "../components/Pages/FullPost/FullPost";
 import {RegConfirm} from "../components/Pages/RegConfirm/RegConfirm";
 import {EmailConfirm} from "../components/Pages/EmailConfirm/EmailConfirm";
+import {Context} from "../App";
+import {MyPostsList} from "../components/MyPosts/MyPosts";
+import {ErrorPage} from "../components/Pages/ErrorPage/ErrorPage";
+import {AddPost} from "../components/Pages/AddPost/AddPost";
+import {ResetPassword} from "../components/Pages/ResetPassword/ResetPassword";
+import {ConfirmPassword} from "../components/Pages/ConfirmPassword/ConfirmPassword";
 
 export const RootRouter = () => {
   return (
@@ -15,7 +21,22 @@ export const RootRouter = () => {
       <Route element={<RegistrationPage />} path="/registration" />
       <Route element={<FullPost />} path="/selectedPost/:id" />
       <Route element={<RegConfirm />} path="/regConfirm" />
-      <Route element={<EmailConfirm />} path="/emailConfirm" />
+      <Route element={<EmailConfirm />} path="/navigate/:uid/:token" />
+      <Route element={useLoginGuard(<AddPost/>)} path="/add-post" />
+      <Route element={useLoginGuard(<MyPostsList/>)} path="/my-posts" />
+      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/password/reset/confirm/:uid/:token" element={<ConfirmPassword />} />
+      <Route element={<ErrorPage />} path="*" />
     </Routes>
   )
-}
+};
+
+const useLoginGuard = (component: ReactNode) => {
+  const { user } = useContext(Context);
+
+  if(user) {
+    return component;
+  } else {
+    return <Navigate to="/login" />
+  };
+};

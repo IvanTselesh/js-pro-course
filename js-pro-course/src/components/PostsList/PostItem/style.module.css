@@ -4,11 +4,19 @@
     display: flex;
     flex-direction: column;
     padding: 10px;
-    background: #FEF4C0;
-    border: 1px solid #FE8535;
     border-radius: 20px;
     margin: 5px;
     cursor: pointer;
+}
+
+.lightWrap {
+    background: #FEF4C0;
+    border: 1px solid #FE8535;
+}
+
+.darkWrap {
+    background: #F8A86A;
+    border: 1px solid #4D0C02;
 }
 
 .itemWrapImg {

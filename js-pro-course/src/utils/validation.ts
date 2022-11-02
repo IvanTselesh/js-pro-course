@@ -3,7 +3,7 @@ const latinAlph = new RegExp('^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$');
 const passSymbols = new RegExp('(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$');
 
 export const validateRequired = (value: string) => {
-  if(value) {
+  if(!value) {
     return 'Required field';
   };
 
@@ -20,6 +20,7 @@ export const validateConfirm = (password: string, confirmPassword: string) => {
 
 export const validateEmail = (value: string) => {
   if(!emailRegExp.test(value))  {
+
     return 'Wrong email format';
   };
 
@@ -27,9 +28,9 @@ export const validateEmail = (value: string) => {
     return 'Required field';
   };
 
-  if(!latinAlph.test(value)) {
-    return 'Only latin symbols are accepted';
-  };
+  // if(!latinAlph.test(value)) {
+  //   return 'Only latin symbols are accepted';
+  // };
 
   return '';
 };
